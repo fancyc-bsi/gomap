@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"sync"
 
 	"github.com/fancyc-bsi/gomap/internal/nmap"
+	"github.com/fancyc-bsi/gomap/internal/reporting"
 	_ "github.com/fancyc-bsi/gomap/plugins" // Import to register plugins
 )
 
@@ -62,4 +64,12 @@ func main() {
 		}(target)
 	}
 	wg.Wait()
+
+	// Render the Markdown files into a comprehensive HTML report
+	reportFile := filepath.Join(outputDir, "report.html")
+	err = reporting.RenderReport(outputDir, reportFile)
+	if err != nil {
+		log.Fatalf("\033[1;31m[!] Failed to render report: %v\033[0m", err)
+	}
+	fmt.Printf("\033[1;32m[+] Report generated successfully: %s\033[0m\n", reportFile)
 }

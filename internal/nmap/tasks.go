@@ -19,7 +19,7 @@ func PerformTasksBasedOnResults(nmapResult *NmapRun, outputDir, target string) e
 				wg.Add(1)
 				go func(plugin plugins.HostPlugin, ip string) {
 					defer wg.Done()
-					outputFile := filepath.Join(outputDir, fmt.Sprintf("%s_host_%s.txt", target, plugin.GetName()))
+					outputFile := filepath.Join(outputDir, fmt.Sprintf("%s_host_%s.md", target, plugin.GetName()))
 					fmt.Printf("\033[1;34m[+] Running plugin %s on host %s\033[0m\n", plugin.GetName(), ip)
 					output, err := plugin.Run(ip, "")
 					if err != nil {
@@ -61,7 +61,7 @@ func handleOpenPort(ip, port, service, outputDir, target string) error {
 		return nil
 	}
 	for _, plugin := range plugins {
-		outputFile := filepath.Join(outputDir, fmt.Sprintf("%s_%s_%s.txt", target, service, port))
+		outputFile := filepath.Join(outputDir, fmt.Sprintf("%s_%s_%s.md", target, service, port))
 		fmt.Printf("\033[1;34m[+] Running plugin %s on %s:%s\033[0m\n", plugin.GetName(), ip, port)
 		output, err := plugin.Run(ip, port)
 		if err != nil {
