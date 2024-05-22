@@ -7,5 +7,5 @@ func init() {
 		Args:        []string{"-A", "--rpc", "{ip}"},
 		IsHostBased: false,
 	}
-	RegisterPlugin(rpcLdapPlugin, []string{"135"}, []string{"rpc", "ldap"})
+	RegisterPlugin(rpcLdapPlugin, []string{"135"}, []string{"msrpc", "ldap"})
 }
