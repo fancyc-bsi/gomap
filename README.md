@@ -8,4 +8,4 @@ Modular automation tool for OSCP/HTB.
 
 ## Quick Start
 
-go install github.com/fancyc-bsi/gomap/gomap@latest
+`go install github.com/fancyc-bsi/gomap/gomap@latest`
