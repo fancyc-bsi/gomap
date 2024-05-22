@@ -46,6 +46,9 @@ jobs:
       id: extract_tag
       run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
+    - name: Debug Tag Name
+      run: echo "Tag name is ${{ env.TAG_NAME }}"
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -56,6 +59,7 @@ jobs:
         release_name: Release ${{ env.TAG_NAME }}
         body: |
           ## Changelog
+          - init
         draft: false
         prerelease: false
 
