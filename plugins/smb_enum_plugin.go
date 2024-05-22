@@ -7,5 +7,5 @@ func init() {
 		Args:        []string{"-L", "//{ip}", "-N"},
 		IsHostBased: false,
 	}
-	RegisterPlugin(smbEnumPlugin, []string{"139", "445"}, []string{"smb"})
+	RegisterPlugin(smbEnumPlugin, []string{"139", "445"}, []string{"microsoft-ds"})
 }
