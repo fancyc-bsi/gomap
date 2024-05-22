@@ -3,11 +3,12 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"gomap/internal/nmap"
-	_ "gomap/plugins" // Import to register plugins
 	"log"
 	"os"
 	"sync"
+
+	"github.com/fancyc-bsi/gomap/internal/nmap"
+	_ "github.com/fancyc-bsi/gomap/plugins" // Import to register plugins
 )
 
 func main() {

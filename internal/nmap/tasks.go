@@ -2,10 +2,11 @@ package nmap
 
 import (
 	"fmt"
-	"gomap/internal/utils"
-	"gomap/plugins"
 	"path/filepath"
 	"sync"
+
+	"github.com/fancyc-bsi/gomap/internal/utils"
+	"github.com/fancyc-bsi/gomap/plugins"
 )
 
 func PerformTasksBasedOnResults(nmapResult *NmapRun, outputDir, target string) error {
