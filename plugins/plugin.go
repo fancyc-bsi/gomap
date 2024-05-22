@@ -6,7 +6,7 @@ import (
 
 type Plugin interface {
 	Run(ip, port string) (string, error)
-	Name() string
+	GetName() string
 }
 
 type HostPlugin interface {
@@ -18,7 +18,8 @@ var portToPluginsMap = make(map[string][]string)
 var serviceToPluginsMap = make(map[string][]string)
 var hostPlugins []HostPlugin
 
-func RegisterPlugin(name string, plugin Plugin, ports []string, services []string) {
+func RegisterPlugin(plugin Plugin, ports []string, services []string) {
+	name := plugin.GetName()
 	registeredPlugins[name] = plugin
 	for _, port := range ports {
 		portToPluginsMap[port] = append(portToPluginsMap[port], name)
@@ -28,7 +29,7 @@ func RegisterPlugin(name string, plugin Plugin, ports []string, services []strin
 	}
 }
 
-func RegisterHostPlugin(name string, plugin HostPlugin) {
+func RegisterHostPlugin(plugin HostPlugin) {
 	hostPlugins = append(hostPlugins, plugin)
 }
 
