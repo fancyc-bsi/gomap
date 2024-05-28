@@ -36,8 +36,8 @@ func (p *BasePlugin) Run(ip, port string) (string, error) {
 		cmdArgs[i] = strings.ReplaceAll(cmdArgs[i], "{port}", port)
 	}
 
-	fmt.Printf("\033[1;34m[+] Running %s tasks on %s\033[0m\n", p.Name, ip)
-	fmt.Printf("\033[1;34m[+] Command: %s %s\033[0m\n", p.Command, strings.Join(cmdArgs, " "))
+	//fmt.Printf("\033[1;34m[+] Running %s tasks on %s\033[0m\n", p.Name, ip)
+	//fmt.Printf("\033[1;34m[+] Command: %s %s\033[0m\n", p.Command, strings.Join(cmdArgs, " "))
 
 	timeout := p.Timeout
 	if timeout == 0 {
