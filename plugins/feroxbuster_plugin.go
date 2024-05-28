@@ -1,12 +1,14 @@
 package plugins
 
+import "time"
+
 func init() {
 	feroxbusterPlugin := &BasePlugin{
 		Name:        "Feroxbuster",
 		Command:     "feroxbuster",
-		Args:        []string{"--silent", "--smart", "--auto-bail", "-x", "txt,php,html", "--url", "{url}"},
+		Args:        []string{"--silent", "-w", "/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt", "--url", "{url}"},
 		IsHostBased: false,
-		Protocol:    "http", // Default to HTTP, can be changed to HTTPS if needed
+		Timeout:     10 * time.Minute,
 	}
 	RegisterPlugin(feroxbusterPlugin, []string{}, []string{"http", "https"})
 }
