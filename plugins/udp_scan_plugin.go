@@ -9,7 +9,7 @@ func init() {
 		Args:        []string{"-sU", "-T4", "--top-ports", "100", "{ip}"},
 		IsHostBased: true,
 		UseSudo:     true,
-		Timeout:     10 * time.Minute,
+		Timeout:     1 * time.Minute,
 	}
 	RegisterHostPlugin(udpScanPlugin)
 }

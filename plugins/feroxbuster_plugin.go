@@ -8,7 +8,7 @@ func init() {
 		Command:     "feroxbuster",
 		Args:        []string{"--silent", "-w", "/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt", "--url", "{url}"},
 		IsHostBased: false,
-		Timeout:     5 * time.Minute,
+		Timeout:     1 * time.Minute,
 	}
 	RegisterPlugin(feroxbusterPlugin, []string{}, []string{"http", "https"})
 }
